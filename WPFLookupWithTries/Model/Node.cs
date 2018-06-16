@@ -52,9 +52,9 @@ namespace WPFLookupWithTries.Model
                     return new List<int>();
                 }
             }
-            return TraverseTreeToCount(temp);
+            return TraverseTreeForContacts(temp);
         }
-        List<int> TraverseTreeToCount(Node n)
+        List<int> TraverseTreeForContacts(Node n)
         {
             if (n == null)
                 return new List<int>();
@@ -63,7 +63,7 @@ namespace WPFLookupWithTries.Model
                 ids.Add(n.id);
             foreach (var kvmap in n.map)
             {
-                var result = TraverseTreeToCount(kvmap.Value);
+                var result = TraverseTreeForContacts(kvmap.Value);
                 if (result.Count > 0)
                 {
                     ids.AddRange(result);
